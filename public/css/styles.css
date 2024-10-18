@@ -1,78 +1,103 @@
-/* Coffee-Themed Styles */
+/* styles.css */
 body {
-    background-color: #f3e5ab; /* Light coffee color */
-    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Full viewport height */
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center; /* Center content vertically and horizontally */
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before, body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+body::before {
+    background: rgba(255, 0, 0, 0.3); /* สีแดงโปร่งใส */
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 30% 100%); /* สี่เหลี่ยมเอียงขวา */
+}
+
+body::after {
+    background: rgba(255, 255, 0, 0.3); /* สีเหลืองโปร่งใส */
+    clip-path: polygon(70% 0, 100% 0, 100% 100%, 30% 100%); /* สีเหลืองอยู่ฝั่งขวา */
 }
 
 .login-container {
-    background-color: #3e2723; /* Dark coffee brown */
-    color: #ffe0b2; /* Light cream */
-    width: 400px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    display: flex;
+    background-color: rgba(255, 255, 255, 0.8); /* สีขาวแบบกึ่งโปร่งใส */
+    border-radius: 10px;
+    padding: 40px; /* เพิ่ม padding เพื่อสร้างช่องว่างรอบ ๆ ฟอร์ม */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ดูเป็นทางการ */
+    width: 300px;
+    text-align: center;
+    display: flex; /* ใช้ flexbox สำหรับการจัดแนวกลาง */
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    min-height: 400px; /* Ensures container has enough height */
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* กำหนดความสูงเพื่อให้สามารถจัดตรงกลางได้ */
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
-    font-family: 'Georgia', serif;
-    color: #ffcc80; /* Latte-like color */
-    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
 }
 
 form {
-    width: 100%; /* Make form fill the width of the container */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center form fields horizontally */
+    width: 100%; /* กำหนดให้ฟอร์มมีความกว้าง 100% ของ login-container */
 }
 
 label {
-    font-size: 1.2em;
-    color: #fff3e0; /* Creamy color */
-    margin: 10px 0 5px 0;
+    display: block;
     text-align: left;
-    width: 80%; /* Reduce width for better centering */
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
 }
 
 input[type="text"], input[type="password"] {
-    width: 80%; /* Reduce width to make the input fields smaller */
+    width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
-    border: none;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Ensures input text starts from the left */
+    font-size: 14px;
+    box-sizing: border-box; /* เพื่อไม่ให้ขอบช่องอินพุตกระทบกับความกว้าง */
 }
 
 button {
-    width: 80%; /* Make buttons match input fields width */
+    width: 100%;
     padding: 10px;
-    background-color: #795548; /* Coffee brown */
-    color: #ffffff; /* White for contrast */
+    background-color: #333;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.2em;
-    margin-top: 10px;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #5d4037; /* Darker coffee tone */
+    background-color: #555;
 }
 
 #message {
-    color: #fff3e0; /* Light coffee cream text */
-    text-align: center;
-    margin-top: 15px;
+    max-width: 100%; /* กำหนดให้ข้อความอยู่ภายในกรอบความกว้าง */
+    max-height: 200px; /* กำหนดความสูงสูงสุด */
+    overflow-y: auto; /* ทำให้สามารถเลื่อนในแนวตั้งได้หากเนื้อหาเกิน */
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* สีพื้นหลังโปร่งใส */
+    border-radius: 10px; /* ขอบโค้ง */
+    color: #333; /* สีข้อความ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
 }
+
